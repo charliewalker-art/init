@@ -14,7 +14,7 @@
             <p class="error">Le titre est obligatoire.</p>
         <?php endif; ?>
 
-        <form action="/taches/store" method="POST" class="task-form">
+        <form action="/taches" method="POST" class="task-form">
             <label for="titre">Titre</label>
             <input id="titre" name="titre" type="text" required>
 

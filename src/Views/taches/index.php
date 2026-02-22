@@ -10,7 +10,10 @@
     <main class="container">
         <div class="header-row">
             <h1>Mes taches</h1>
-            <a class="btn" href="/taches/create">Ajouter une tache</a>
+            <div class="actions">
+                <a class="btn" href="/taches/pdf">Generer PDF</a>
+                <a class="btn" href="/taches/create">Ajouter une tache</a>
+            </div>
         </div>
 
         <?php if (empty($taches)): ?>

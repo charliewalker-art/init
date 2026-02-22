@@ -37,6 +37,7 @@ Ce projet est une application PHP simple, structuree en architecture MVC minimal
 
 - `GET /` -> accueil
 - `GET /taches` -> liste des taches
+- `GET /taches/pdf` -> generer un PDF de la liste des taches
 - `GET /taches/create` -> formulaire d'ajout
 - `POST /taches/store` -> enregistrer une tache
 - `GET /taches/show?id=1` -> afficher une tache

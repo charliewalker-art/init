@@ -3,6 +3,8 @@
 namespace Charlie\Emploi\Controllers;
 
 use Charlie\Emploi\Models\Tache;
+use Dompdf\Dompdf;
+use Dompdf\Options;
 
 class TacheController
 {
@@ -76,6 +78,23 @@ class TacheController
     {
         $this->tacheModel->delete($id);
         $this->redirect('/taches');
+    }
+
+    public function pdf(): void
+    {
+        $taches = $this->tacheModel->all();
+        $html = $this->render('taches/pdf', ['taches' => $taches]);
+
+        $options = new Options();
+        $options->set('isRemoteEnabled', false);
+        $options->set('defaultFont', 'DejaVu Sans');
+
+        $dompdf = new Dompdf($options);
+        $dompdf->loadHtml($html, 'UTF-8');
+        $dompdf->setPaper('A4', 'portrait');
+        $dompdf->render();
+        $dompdf->stream('liste-taches.pdf', ['Attachment' => true]);
+        exit;
     }
 
     private function render(string $view, array $data = []): string

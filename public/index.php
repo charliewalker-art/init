@@ -23,7 +23,7 @@ if (file_exists($envPath)) {
     }
 }
 
-$routes = require __DIR__ . '/../routes/wed.php';
+$routes = require __DIR__ . '/../routes/web.php';
 $uri = parse_url($_SERVER['REQUEST_URI'] ?? '/', PHP_URL_PATH);
 $uri = $uri !== '/' ? rtrim($uri, '/') : '/';
 $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
