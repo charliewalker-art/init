@@ -1,0 +1,17 @@
+{
+    "name": "charlie/emploi",
+    "autoload": {
+        "psr-4": {
+            "Charlie\\Emploi\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "charliewalker-art",
+            "email": "charliewaltert0206@gmail.com"
+        }
+    ],
+    "require": {
+        "vlucas/phpdotenv": "^5.6"
+    }
+}
