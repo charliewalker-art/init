@@ -1,0 +1,35 @@
+services:
+  app:
+    build: .
+    container_name: emploi_app
+    env_file:
+      - .env
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - db
+
+  web:
+    image: nginx:alpine
+    container_name: emploi_web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    depends_on:
+      - app
+
+  db:
+    image: mysql:8.0
+    container_name: emploi_db
+    environment:
+      MYSQL_DATABASE: emploi
+      MYSQL_USER: emploi_user
+      MYSQL_PASSWORD: emploi_pass
+      MYSQL_ROOT_PASSWORD: root_pass
+    volumes:
+      - dbdata:/var/lib/mysql
+
+volumes:
+  dbdata:
